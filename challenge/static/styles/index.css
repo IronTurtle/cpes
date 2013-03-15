@@ -1,0 +1,125 @@
+#img-logo {
+	max-width: 82;
+	max-height: 100;
+}
+
+.navbar {
+	color: 009900;
+	background-color: 009900;
+}
+
+.navbar-inner {
+  background-color: #009900; 
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+  border: 0px;
+}
+
+.container {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.problem-container {
+	min-width: 600px;
+	min-height: 194px;
+	padding: 60px;
+	margin-bottom: 30px;
+}
+
+/*
+body {
+   background-image: url(http://bradjasper.com/subtle-patterns-bookmarklet/patterns/furley_bg.png);
+   background-size: auto;
+   background-repeat: repeat repeat;
+}   
+
+a {
+   color: #08c;
+   text-decoration: none;
+}
+
+a:hover {
+   color: #08c;
+}
+
+#content {
+   padding-top:40px;
+}
+
+.navbar-inner {
+  background-color:#fafafa;
+  background-image:-moz-linear-gradient(top, #de5d56, #de5d56);
+  background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#de5d56), to(#de5d56));
+  background-image:-webkit-linear-gradient(top, #de5d56, #de5d56);
+  background-image:-o-linear-gradient(top, #de5d56, #de5d56);
+  background-image:linear-gradient(to bottom, #de5d56, #de5d56);   
+}   
+
+.navbar .brand {
+  color:#f7f7f7;
+  text-shadow:none;
+  padding-bottom: 0px;
+  padding-top: 5px;
+}   
+
+.navbar .nav > li > a { 
+  color:#f7f7f7;
+  text-shadow:none;
+}   
+
+.family-name { 
+  color:#FFFFFF;
+  text-shadow:none;
+}   
+
+#family-form {
+   position:absolute;
+   left:-9999px;
+   width:1px;
+   height:1px;
+}
+
+.invite-alias {
+   display:inline;
+}
+
+.join {
+   margin-bottom:10px;
+}
+
+.title {
+   text-align:center;
+}
+
+.title-mobile {
+   text-align:center;
+   color:#f7f7f7;
+}
+
+h3 {
+   margin-top: 0px;
+   margin-bottom: 0px;
+}
+
+@media (max-width: 979px){
+   #content {
+      padding-top: 0px;
+   }
+}
+
+@media (max-width: 979px){
+   collapse .nav>li>a, .nav-collapse .dropdown-menu a {
+      color:#f7f7f7;
+   }
+
+   .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-submenu:hover>a, .dropdown-submenu:focus>a {   
+      background-image:none;
+   }
+
+   .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-submenu:hover>a, .dropdown-submenu:focus>a {
+      color:#333;
+   }
+}
+*/
