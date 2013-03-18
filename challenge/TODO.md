@@ -12,7 +12,7 @@
 	* alert user if correct or not
 	* close challenge if winner found
 	* add point(s) to winner's point count
-*admin
+* admin
 	* ~~create admin page~~
 	* ~~set up database~~
 	* ~~set up models for database~~
