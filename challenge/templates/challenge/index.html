@@ -31,10 +31,29 @@
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
                     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    
+    <script>
+    $(document).ready(function()
+    {
+    	$('#login-btn').click(function() {
+    		var username = $('#username').val();
+    		//var password = $('#password').val();
+    		console.log("username: " + username);
+    		if($('#login-btn').html() == 'Login' && $('#username').val().length > 0) {
+    			$('#username').hide();
+    			$('#login-btn').html(username + ", Logout");
+    		}
+    		else {
+    			$('#username').show();
+    			$('#username').val("");
+    			$('#login-btn').html("Login");
+    		}
+    	});
+	});
+	</script>
   </head>
 
   <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -43,26 +62,41 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">CPEs Challenge</a>
+          <a class="brand" href="/challenge">CPEs Challenge</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="/challenge">Home</a></li>
               <li><a href="#about">About</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/index.html">
+                  Challenges
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  {% if latest_problem_list %}
+                    {% for problem in latest_problem_list %}
+                        <li><a href="#" onclick="$('.problem-container').html('<u><b>Problem:</b></u> <br>{{problem.question}}')">CPEs Challenge {{ problem.id }}</a></li>
+                    {% endfor %}
+                  </ul>
+                {% else %}
+                    <li>(No problems are available.)</li>
+                {% endif %}
+                </ul>
+              </div>
             </ul>
-            <form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Username">
-              <input class="span2" type="password" placeholder="Password">
-              <button type="submit" class="btn">Login</button>
+            <form class="navbar-form pull-right user-toolbar">
+              <input class="span2 input" type="text" id="username" placeholder="Username">
+              <!--<input class="span2" type="password" id="password" placeholder="Password">-->
+              <button type="submit" class="btn btn-primary" id="login-btn">Login</button>
             </form>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-
     <div class="container">
 
     	<div class="row-fluid">
-    		<div class="span2">
+    		<!--<div class="span2 hidden-phone">
     			{% if latest_problem_list %}
 				    <h3><u>Challenges</u></h3>
 				    <ul class="nav nav-list bs-docs-sidenav affix">
@@ -73,16 +107,29 @@
 				{% else %}
 				    <p>No problems are available.</p>
 				{% endif %}
-    		</div>
+    		</div>-->
       		<div class="span8">
       			<div id="challenge-title">
       				<h2>CPEs Challenge</h2>
       			</div>
-	      		<div class="hero-unit problem-container">
-			        <h1>Hello!</h1>
-			        <p>This is the CPEs challenge website. From now on, you will be participating in the CPEs challenge with this website.</p>
-			        <p><a href="#" class="btn btn-primary btn-large">Go to latest challenge &raquo;</a></p>
+            <div class="row-fluid">
+              <div class="row">
+    	      		<div class="well well-large problem-container">
+    			        <h1>Hello!</h1>
+    			        <p>This is the CPEs challenge website. From now on, you will be participating in the CPEs challenge with this website.</p>
+    			        <!--<p><a href="#" class="btn btn-primary btn-large">Go to latest challenge &raquo;</a></p>-->
+    			        <p><h3><b>Sign in on the top right to start.</b></h3></p>
+    		      	</div>
+              </div>
+		      	<div class="row" id="answer-container">
+		      		<!--<form action="#" method="POST">
+                <input type="text" id="user-answer" placeholder="Input answer here..."/>
+                <input type="submit" value="Submit"/>
+              </form>-->
+              <textarea class="answer" rows="3" placeholder="Input answer here..."></textarea>
+		      		<button class="btn btn-primary btn-large">Submit</button>
 		      	</div>
+          </div>
 		      	<hr>
 		  	</div>
   		</div>
@@ -91,57 +138,3 @@
 	        <p>&copy; Computer Engineering Society 2013</p>
 	      </footer>
     </div> <!-- /container -->
-
-	<!--<div class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			    </a>
-				<a href="/" class="brand club" id="logo">
-					<img src="{{ STATIC_URL }}images/logo.png" id="img-logo">
-					
-				</a>
-				<ul id="pull-left"></ul>
-				<div class="nav-colapse collapse">
-					<ul class="nav pull-right" id="nav-right">
-						li><h5>Username: </h5><input type="text" id="username"></input></li>
-						<li><h5>Password: </h5><input type="text" id="password"></input></li>
-						<li><button class="btn btn-primary" type="submit" id="login-btn">Login</button></li>
-						
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>-->
-	<!--
-	<a class="btn btn-navbar hidden" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </a>
-	<a href="/" class="club" id="logo">
-		<img src="{{ STATIC_URL }}images/logo.png" id="img-logo">
-	</a>
-    <h3><u>CPEs Challenge</u></h3>
-	<ul class="nav pull-right" id="nav-right">
-		<li><h5>Username: </h5><input type="text" id="username"></input></li>
-		<li><h5>Password: </h5><input type="text" id="password"></input></li>
-		<li><button class="btn btn-primary" type="submit" id="login-btn">Login</button></li>
-	</ul>
-	-->
-	<!--<div id="content">
-		{% if latest_problem_list %}
-		    <h3>Listed are the following CPEs challenges.</h3>
-		    <ul>
-		    {% for problem in latest_problem_list %}
-		        <li><a href="/challenge/{{ problem.id }}/">CPEs Challenge {{ problem.id }} ({{problem.pub_date}})</a></li>
-		    {% endfor %}
-	    </ul>
-		{% else %}
-		    <p>No problems are available.</p>
-		{% endif %}
-	</div>
-	-->

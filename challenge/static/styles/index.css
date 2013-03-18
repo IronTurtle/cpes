@@ -4,16 +4,17 @@
 }
 
 .navbar {
-	color: 009900;
-	background-color: 009900;
 }
 
 .navbar-inner {
-  background-color: #009900; 
   background-image: none;
   background-repeat: no-repeat;
   filter: none;
   border: 0px;
+}
+
+#username {
+	height: 30px;
 }
 
 .container {
@@ -22,10 +23,13 @@
 }
 
 .problem-container {
-	min-width: 600px;
-	min-height: 194px;
 	padding: 60px;
 	margin-bottom: 30px;
+}
+
+.answer {
+	width: 70%;
+	height: 60px;
 }
 
 /*
